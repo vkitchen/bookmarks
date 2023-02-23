@@ -1,3 +1,7 @@
 <h1><%= @bookmark.title %></h1>
 
 <p><%= @bookmark.url %></p>
+
+<ul>
+  <li><%= link_to 'Edit', edit_bookmark_path(@bookmark) %></li>
+</ul>
