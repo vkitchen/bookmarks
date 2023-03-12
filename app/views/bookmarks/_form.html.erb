@@ -1,15 +1,30 @@
 <%= form_with model: @bookmark do |form| %>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
     <%= form.label :url %><br>
     <%= form.text_field :url %>
     <% @bookmark.errors.full_messages_for(:url).each do |message| %>
       <div><%= message %></div>
     <% end %>
+  </div>
+
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :private %><br>
+    <%= form.check_box :private %>
+  </div>
+
+  <div>
+    <%= form.label :read_later %><br>
+    <%= form.check_box :read_later %>
   </div>
 
   <div>

@@ -3,7 +3,7 @@
 <ul>
   <% @bookmarks.each do |bookmark| %>
     <li>
-      <%= link_to bookmark.title, bookmark %>
+      <%= link_to (bookmark.title || bookmark.url), bookmark %>
     </li>
   <% end %>
 </ul>
