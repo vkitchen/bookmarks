@@ -5,10 +5,6 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.where(user: user)
   end
 
-  def show
-    @bookmark = Bookmark.find_by!(id: params[:id], user: user)
-  end
-
   def new
     @bookmark = Bookmark.new
   end
