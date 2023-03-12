@@ -1,5 +1,6 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
+class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:username])
 
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      message = "Login failed"
+      message = 'Login failed'
       redirect_to login_path, notice: message
     end
   end
@@ -16,5 +17,4 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     redirect_to root_url
   end
-
 end

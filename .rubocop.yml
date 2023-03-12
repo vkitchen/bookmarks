@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
