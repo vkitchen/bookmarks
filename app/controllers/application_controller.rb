@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    return if user.blank?
+    return if user.present?
 
     flash[:error] = 'Login required'
     redirect_to login_path
