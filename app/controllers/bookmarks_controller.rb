@@ -2,11 +2,11 @@
 
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.where(user: user)
   end
 
   def show
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find_by!(id: params[:id], user: user)
   end
 
   def new
@@ -24,11 +24,11 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find_by!(id: params[:id], user: user)
   end
 
   def update
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find_by!(id: params[:id], user: user)
 
     if @bookmark.update(bookmark_params)
       redirect_to @bookmark
@@ -38,7 +38,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find_by!(id: params[:id], user: user)
     @bookmark.destroy
 
     redirect_to root_path, status: :see_other

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_212303) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_12_032552) do
   create_table "bookmarks", force: :cascade do |t|
     t.text "url"
     t.text "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212303) do
     t.boolean "read_later"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,4 +30,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_212303) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookmarks", "users"
 end
