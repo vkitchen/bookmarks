@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def user
     @user ||= User.find_by(id: session[:user_id]) if session[:user_id].present?
   end
+  helper_method :user
 
   def require_login
     return if user.present?
